@@ -12,7 +12,7 @@ export const ApiProvider = ({ children }) => {
       const response = await myAxios.get(vegpont); //az alapértelmezett baseURL-ben megadott végpontot kiegészítjük a /products-szal
       callbackfv(response.data); //beállítjuk az apiData statet a beállítófüggvényével.
     } catch (err) {
-      console.log("Hiba történt az adatok lekérésekor.");
+      console.log("Hiba történt az adatok lekérésekor.", err);
     } finally {
     }
   };
