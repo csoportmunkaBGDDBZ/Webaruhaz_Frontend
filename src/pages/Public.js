@@ -16,7 +16,7 @@ function Public() {
       </article>
       <aside className="col-lg-4">
         <h4>Kosár</h4>
-        {/* <Kosar kosarLista={kosarLista} /> */}
+        <Kosar kosarLista={kosarLista} />
       </aside>
     </main>
   );

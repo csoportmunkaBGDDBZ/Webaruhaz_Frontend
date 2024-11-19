@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { KosarContext } from "../context/KosarContext";
 
 function Termek({ termek }) {
+  const { kosarba } = useContext(KosarContext);
   return (
     <Card style={{ width: "16rem" }} className="col-lg-2 ">
       <Card.Img variant="top" src={termek.img} />
@@ -16,7 +18,7 @@ function Termek({ termek }) {
           <Button
             variant="primary"
             onClick={() => {
-              //   kosarba(termek);
+              kosarba(termek);
             }}
           >
             Kosárba!
