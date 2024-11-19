@@ -1,7 +1,7 @@
 import React from "react";
 import Termek from "./Termek";
 
-function Termekek() {
+function Termekek({ termekLista }) {
   return (
     <div className="row gap-2 d-flex justify-content-center">
       {termekLista.map((termek) => {
