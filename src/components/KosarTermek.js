@@ -6,12 +6,11 @@ function KosarTermek({ termek }) {
   const {kosarTorles} = useContext(KosarContext) 
   return (
     <>
-      {["sm", "md", "lg", "xl", "xxl"].map((breakpoint) => (
-        <ListGroup key={breakpoint} horizontal={breakpoint} className="my-2">
+        <ListGroup horizontal className="my-2">
           <ListGroup.Item>{termek.title}</ListGroup.Item>
           <ListGroup.Item>{termek.description}</ListGroup.Item>
           <ListGroup.Item>{termek.price}</ListGroup.Item>
-          <ListGroup.Item onClick={() => {kosarTorles(termek.id)}}>
+          <ListGroup.Item onClick={() => {kosarTorles()}}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -25,7 +24,6 @@ function KosarTermek({ termek }) {
             </svg>
           </ListGroup.Item>
         </ListGroup>
-      ))}
     </>
   );
 }
