@@ -1,25 +1,28 @@
 import { Outlet, Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
 const Layout = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container">
+      <Navbar bg="dark" data-bs-theme="dark">
+        <Container>
           <Link to="/public" className="navbar-brand">
             Public
           </Link>
+          <Nav className="me-auto">
+            <Link to="/public" className="navbar-brand">
+              Termék
+            </Link>
 
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link to="/admin" className="navbar-brand">
-                  Admin
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+            <Link to="/admin" className="navbar-brand">
+              Admin
+            </Link>
+          </Nav>
+        </Container>
+      </Navbar>
+
       <article>
         {/* Ide kerül majd az útvonalak/linkek által meghatározott tartalom */}
         <Outlet />
