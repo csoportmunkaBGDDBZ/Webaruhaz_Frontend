@@ -12,9 +12,12 @@ export const KosarProvider = ({ children }) => {
       return ujLista;
     });
   }
+  function kosarTorles(id) {
+    setKosarLista(kosarLista.filter((termek) => id !== termek.id));
+  }
 
   return (
-    <KosarContext.Provider value={{ kosarLista, kosarba }}>
+    <KosarContext.Provider value={{ kosarLista, kosarba, kosarTorles }}>
       {children}
     </KosarContext.Provider>
   );
