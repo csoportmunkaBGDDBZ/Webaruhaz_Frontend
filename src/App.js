@@ -1,4 +1,8 @@
-import "./App.css";
+import Admin from "./pages/Admin.js";
+import Public from "./pages/Public.js";
+import Layout from "./pages/Layout";
+import NoPage from "./pages/NoPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
