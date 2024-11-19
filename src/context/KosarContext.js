@@ -9,6 +9,7 @@ export const KosarProvider = ({ children }) => {
     setKosarLista((elozoLista) => {
       const ujLista = [...elozoLista];
       ujLista.push(termek);
+      console.log(ujLista);
       return ujLista;
     });
   }

@@ -9,7 +9,7 @@ const Layout = () => {
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Link to="/public" className="navbar-brand">
-            Public
+            Webáruház
           </Link>
           <Nav className="me-auto">
             <Link to="/public" className="navbar-brand">
