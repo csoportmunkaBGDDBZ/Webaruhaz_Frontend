@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TermekAdminSor() {
+function TermekAdminSor({termek}) {
   return (
     <>
         <tr>

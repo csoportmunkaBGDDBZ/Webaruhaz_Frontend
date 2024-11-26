@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import { ApiContext } from "../context/ApiContext";
 
 function Urlap() {
-  const { katLista } = useContext(ApiContext);
+  const { postAdat,katLista } = useContext(ApiContext);
 
   const [adat,setAdat] = useState({
     title: "Ez a termék neve",
@@ -18,9 +18,14 @@ function Urlap() {
     segedObj[event.target.id] = event.target.value;
     setAdat({ ...segedObj })
   }
+  function elkuld(event) {
+    event.preventDefault();
+    console.log("elküld", adat);
+    postAdat("/products", adat);
+  }
   return (
     <div>
-      <form>
+      <form onSubmit={elkuld}>
         <div class="mb-3">
           <label htmlFor="title" class="form-label">
             Termék neve
@@ -65,7 +70,7 @@ function Urlap() {
         </div>
         <div>
           <Form.Select aria-label="Default select example">
-           {/*  {katLista.map((kategoria, index) => {
+          {/*   {katLista.map((kategoria, index) => {
               return (
                 <option key={index} value={kategoria}>
                   {kategoria}

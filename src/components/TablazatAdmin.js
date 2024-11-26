@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Table from 'react-bootstrap/Table';
+import Table from "react-bootstrap/Table";
 import TermekAdminSor from "./TermekAdminSor";
 import { ApiContext } from "../context/ApiContext";
 
@@ -7,7 +7,7 @@ function TablazatAdmin() {
   const { termekLista } = useContext(ApiContext);
   return (
     <>
-      <Table striped bordered hover size="sm">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col1">ID</th>
@@ -18,11 +18,18 @@ function TablazatAdmin() {
           </tr>
           <tbody>
             {termekLista.map((termek) => {
-            return <TermekAdminSor lista={termekLista} termek={termek} key={termek.id}/>
-        })};
+              return (
+                <TermekAdminSor
+                  lista={termekLista}
+                  termek={termek}
+                  key={termek.id}
+                />
+              );
+            })}
+            ;
           </tbody>
         </thead>
-      </Table>
+      </table>
     </>
   );
 }
