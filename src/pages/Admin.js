@@ -1,12 +1,11 @@
 import React from "react";
+import Urlap from "../components/Urlap";
 // import TermekekAdmin from "../components/TermekekAdmin";
-// import Urlap from "../components/Urlap";
 
 function Admin() {
   return (
     <div>
-      {/* <Urlap />
-      <TermekekAdmin /> */}
+      <Urlap />
     </div>
   );
 }
