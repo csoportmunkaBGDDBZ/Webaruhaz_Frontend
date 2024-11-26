@@ -6,10 +6,10 @@ function KosarTermek({ termek }) {
   const { kosarTorles } = useContext(KosarContext);
   return (
     <>
-      <ListGroup horizontal className="my-2">
+      <ListGroup horizontal className="my-2 ">
         <ListGroup.Item>{termek.title}</ListGroup.Item>
-        <ListGroup.Item>{termek.description}</ListGroup.Item>
-        <ListGroup.Item>{termek.price}</ListGroup.Item>
+        <ListGroup.Item>{termek.ar}</ListGroup.Item>
+        <ListGroup.Item>{termek.darab}</ListGroup.Item>
         <ListGroup.Item
           onClick={() => {
             kosarTorles(termek.id);
@@ -20,7 +20,7 @@ function KosarTermek({ termek }) {
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-trash"
+            className="bi bi-trash"
             viewBox="0 0 16 16"
           >
             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />

@@ -4,12 +4,19 @@ export const KosarContext = createContext("");
 
 export const KosarProvider = ({ children }) => {
   const [kosarLista, setKosarLista] = useState([]);
+  // const [kosarOsszeg, setKosarOsszeg] = useState(0);
 
   function kosarba(termek) {
     setKosarLista((elozoLista) => {
       const ujLista = [...elozoLista];
-      ujLista.push(termek);
-      console.log(ujLista);
+      if (ujLista.includes(termek)) {
+        termek.darab = termek.darab + 1;
+        termek.ar = termek.price * termek.darab;
+      } else {
+        termek.ar = termek.price;
+        termek.darab = 1;
+        ujLista.push(termek);
+      }
       return ujLista;
     });
   }

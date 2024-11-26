@@ -5,6 +5,7 @@ export const ApiContext = createContext("");
 
 export const ApiProvider = ({ children }) => {
   const [termekLista, setTermekLista] = useState([]);
+  const [katLista, setKatLista] = useState([]);
 
   const getAdat = async (vegpont, callbackfv) => {
     // saját axios példányt használjuk
@@ -47,6 +48,7 @@ export const ApiProvider = ({ children }) => {
   // aszinkron hívások kezelése useEffect hook
   useEffect(() => {
     getAdat("/products", setTermekLista);
+    getAdat("/categories", setKatLista);
   }, []);
 
   return (
