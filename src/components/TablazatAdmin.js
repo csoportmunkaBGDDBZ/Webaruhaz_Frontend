@@ -1,11 +1,13 @@
-import React from "react";
-import Table from 'react-bootstrap/Table';
+import React, { useContext } from "react";
+import Table from "react-bootstrap/Table";
+import TermekAdminSor from "./TermekAdminSor";
+import { ApiContext } from "../context/ApiContext";
 
 function TablazatAdmin() {
-  /* const { termekLista } = useContext(ApiContext); */
+  const { termekLista } = useContext(ApiContext);
   return (
     <>
-      <Table striped bordered hover size="sm">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col1">ID</th>
@@ -14,14 +16,20 @@ function TablazatAdmin() {
             <th scope="col1">Description</th>
             <th scope="col1">Category</th>
           </tr>
-          +
           <tbody>
-          {/*   {termekLista.map((termek) => {
-            return <TermekekAdminSor lista={termekLista} termek={termek} key={termek.id}/>
-        })}; */}
+            {termekLista.map((termek) => {
+              return (
+                <TermekAdminSor
+                  lista={termekLista}
+                  termek={termek}
+                  key={termek.id}
+                />
+              );
+            })}
+            ;
           </tbody>
         </thead>
-      </Table>
+      </table>
     </>
   );
 }

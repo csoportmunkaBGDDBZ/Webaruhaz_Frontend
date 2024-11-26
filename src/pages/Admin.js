@@ -1,12 +1,13 @@
 import React from "react";
+import Urlap from "../components/Urlap";
+import TablazatAdmin from "../components/TablazatAdmin";
 // import TermekekAdmin from "../components/TermekekAdmin";
-// import Urlap from "../components/Urlap";
 
 function Admin() {
   return (
     <div>
-      {/* <Urlap />
-      <TermekekAdmin /> */}
+      {/* <Urlap /> */}
+      <TablazatAdmin/>
     </div>
   );
 }
