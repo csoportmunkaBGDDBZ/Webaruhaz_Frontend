@@ -20,6 +20,14 @@ export const KosarProvider = ({ children }) => {
       return ujLista;
     });
   }
+
+  // function osszegSzamitas(ar) {
+  //   // setKosarOsszeg((elozoOsszeg) => {
+  //   //   let ujOsszeg = elozoOsszeg + ar;
+  //   //   return ujOsszeg;
+  //   // });
+  // }
+
   function kosarTorles(id) {
     setKosarLista(kosarLista.filter((termek) => id !== termek.id));
   }
