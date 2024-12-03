@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import Table from "react-bootstrap/Table";
 import TermekAdminSor from "./TermekAdminSor";
 import { ApiContext } from "../context/ApiContext";
 
@@ -15,7 +14,10 @@ function TablazatAdmin() {
             <th scope="col1">Price</th>
             <th scope="col1">Description</th>
             <th scope="col1">Category</th>
+            <th scope="col1">Edit</th>
+            <th scope="col1">Delete</th>
           </tr>
+        </thead>
           <tbody>
             {termekLista.map((termek) => {
               return (
@@ -26,9 +28,7 @@ function TablazatAdmin() {
                 />
               );
             })}
-            ;
           </tbody>
-        </thead>
       </table>
     </>
   );

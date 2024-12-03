@@ -40,9 +40,13 @@ export const ApiProvider = ({ children }) => {
     }
   };
 
-  function termekTorles(id) {
+  function termekTorles(event, id) {
     setTermekLista(termekLista.filter((listaTargy) => id !== listaTargy.id));
-    deleteAdat(`/products/${id}`);
+    deleteAdat(`/productDelete/${event.target.id}`);
+  }
+
+  function termekModositas() {
+    
   }
 
   // aszinkron hívások kezelése useEffect hook
@@ -52,7 +56,9 @@ export const ApiProvider = ({ children }) => {
   }, []);
 
   return (
-    <ApiContext.Provider value={{ termekLista, postAdat, termekTorles }}>
+    <ApiContext.Provider
+      value={{ termekLista, katLista, postAdat, termekTorles, termekModositas }}
+    >
       {children}
     </ApiContext.Provider>
   );
