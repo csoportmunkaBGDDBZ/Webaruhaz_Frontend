@@ -70,13 +70,13 @@ function Urlap() {
         </div>
         <div>
           <Form.Select aria-label="Default select example">
-          {/*   {katLista.map((kategoria, index) => {
+            {katLista.map((kategoria, index) => {
               return (
                 <option key={index} value={kategoria}>
-                  {kategoria}
+                  {kategoria.category}
                 </option>
               );
-            })} */}
+            })}
           </Form.Select>
           <button type="submit" class="btn btn-primary">
             Küldés
