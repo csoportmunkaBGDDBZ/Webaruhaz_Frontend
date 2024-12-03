@@ -22,7 +22,7 @@ export const ApiProvider = ({ children }) => {
     // saját axios példányt használjuk
     try {
       const response = await myAxios.post(vegpont, adat); //az alapértelmezett baseURL-ben megadott végpontot kiegészítjük a /products-szal
-      console.log(response);
+      console.log(response.data);
     } catch (err) {
       console.log("Hiba történt az adatok küldésekor.");
     } finally {

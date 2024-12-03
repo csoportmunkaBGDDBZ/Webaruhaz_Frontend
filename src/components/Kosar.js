@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import KosarTermek from "./KosarTermek";
 import Button from "react-bootstrap/Button";
+import { KosarContext } from "../context/KosarContext";
 
 function Kosar({ kosarLista }) {
+  const { kosarElkuld, isSubmitting } = useContext(KosarContext);
+
   return (
     <>
       <div>
@@ -18,7 +21,13 @@ function Kosar({ kosarLista }) {
               })}
             </div>
             <div>
-              <Button variant="outline-primary">Rendelés!</Button>
+              <Button
+                onClick={kosarElkuld}
+                variant="outline-primary"
+                disabled={console.log(isSubmitting)}
+              >
+                Rendelés!
+              </Button>
             </div>
           </div>
         )}

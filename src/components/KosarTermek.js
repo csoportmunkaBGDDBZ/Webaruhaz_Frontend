@@ -6,9 +6,9 @@ function KosarTermek({ termek }) {
   const { kosarTorles } = useContext(KosarContext);
   return (
     <>
-      <ListGroup horizontal className="my-2 ">
-        <ListGroup.Item>{termek.title}</ListGroup.Item>
-        <ListGroup.Item>{termek.ar}</ListGroup.Item>
+      <ListGroup horizontal className="my-2 w-100">
+        <ListGroup.Item className="flex-fill">{termek.title}</ListGroup.Item>
+        <ListGroup.Item className="flex-fill">{termek.ar} Ft</ListGroup.Item>
         <ListGroup.Item>{termek.darab}</ListGroup.Item>
         <ListGroup.Item
           onClick={() => {

@@ -1,22 +1,34 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import { ApiContext } from "./ApiContext";
 
 export const KosarContext = createContext("");
 
 export const KosarProvider = ({ children }) => {
   const [kosarLista, setKosarLista] = useState([]);
   // const [kosarOsszeg, setKosarOsszeg] = useState(0);
+  const { postAdat } = useContext(ApiContext);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function kosarba(termek) {
+    console.log(termek);
+
     setKosarLista((elozoLista) => {
       const ujLista = [...elozoLista];
-      if (ujLista.includes(termek)) {
-        termek.darab = termek.darab + 1;
-        termek.ar = termek.price * termek.darab;
+
+      const termekIndex = ujLista.findIndex((item) => item.id === termek.id);
+
+      if (termekIndex !== -1) {
+        ujLista[termekIndex].darab += 1;
+        ujLista[termekIndex].ar =
+          ujLista[termekIndex].price * ujLista[termekIndex].darab;
       } else {
-        termek.ar = termek.price;
         termek.darab = 1;
+        termek.ar = termek.price;
         ujLista.push(termek);
       }
+
+      console.log(ujLista);
+
       return ujLista;
     });
   }
@@ -32,8 +44,27 @@ export const KosarProvider = ({ children }) => {
     setKosarLista(kosarLista.filter((termek) => id !== termek.id));
   }
 
+  function kosarElkuld() {
+    setIsSubmitting(true);
+    const elkuldLista = [];
+    kosarLista.map((kosarSor) => {
+      elkuldLista.push({ product_id: kosarSor.id, amount: kosarSor.darab });
+    });
+
+    postAdat("fill-basket", elkuldLista)
+      .then(() => {
+        setKosarLista([]);
+        setIsSubmitting(false);
+      })
+      .catch((error) => {
+        console.error("Hiba:", error);
+      });
+  }
+
   return (
-    <KosarContext.Provider value={{ kosarLista, kosarba, kosarTorles }}>
+    <KosarContext.Provider
+      value={{ kosarLista, kosarba, kosarTorles, kosarElkuld, isSubmitting }}
+    >
       {children}
     </KosarContext.Provider>
   );
